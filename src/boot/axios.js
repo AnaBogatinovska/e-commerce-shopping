@@ -3,7 +3,7 @@ import axios from "axios";
 import auth from "../services/auth";
 
 Vue.prototype.$axios = axios;
-axios.defaults.baseURL = "http://localhost:3000/api/";
+axios.defaults.baseURL = process.env.API_URL;
 axios.defaults.headers.common[`Content-Type`] = "application/json";
 
 export default ({ Vue, router, store }) => {

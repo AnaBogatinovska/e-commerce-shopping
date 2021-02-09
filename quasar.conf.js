@@ -7,7 +7,7 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
 
-module.exports = function (/* ctx */) {
+module.exports = function (ctx) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
@@ -45,7 +45,11 @@ module.exports = function (/* ctx */) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
-
+      env: ctx.dev ? {
+        API_URL: JSON.stringify('http://localhost:3000/api/')
+      } : {
+        API_URL: JSON.stringify('https://ecommerce-api.anabogatinovska.com/api/')
+      }
       // transpile: false,
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
@@ -64,7 +68,7 @@ module.exports = function (/* ctx */) {
 
       // https://quasar.dev/quasar-cli/handling-webpack
       extendWebpack (cfg) {
-cfg.module.rules.push({
+        cfg.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
