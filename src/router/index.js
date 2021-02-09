@@ -28,12 +28,8 @@ export default function(/* { store, ssrContext } */) {
   });
 
   Router.beforeEach((to, from, next) => {
-    console.log('before eachs', to.name, auth.isLoggedIn())
     if (to.matched.some(record => record.meta.requiresAuth)) {
-      console.log('in meta')
       if (!auth.isLoggedIn()) {
-      console.log('in loogg')
-
         next({
           name: "LandingLayout"
         });
@@ -48,8 +44,6 @@ export default function(/* { store, ssrContext } */) {
         next()
       }
     } else if (to.name === "LandingPage" && auth.isLoggedIn()) {
-      console.log(';meta false')
-
       if (auth.getUserInfo().role === "admin") {
         next({ name: "AdminProducts" });
       } else {
