@@ -1,0 +1,154 @@
+// app global css in Sass form
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+ 
+}
+h1 {
+  font-size: 2em;
+  line-height: 38px;
+  font-weight: 400;
+}
+h2 {
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 32px;
+}
+h3 {
+  font-size: 1.17em;
+  line-height: 28px;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.83em;
+}
+h6 {
+  font-size: 0.67em;
+}
+
+.size-md {
+  font-size: 20px;
+}
+
+.shadow {
+  box-shadow: 0 0 35px rgba(140, 152, 164, 0.15);
+}
+.crash-border {
+  width: 100%;
+  padding-bottom: 77px;
+  padding-top: 32px;
+  background: linear-gradient(transparent, #f1f4f8);
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.crash-border:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-bottom: 35px solid #fff;
+  border-right: 80px solid #f1f4f8;
+  min-width: 50%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.inner-content {
+  flex: 1;
+  padding: 0 22px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background-color: rgb(0 0 0 / 76%);
+  overflow: scroll;
+}
+.form {
+  min-width: 300px;
+}
+
+// Auth Login
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+}
+.auth-form-title {
+  font-weight: 600;
+  color: $primary;
+}
+
+//input
+
+.amount .q-field__native {
+  text-align: center;
+}
+.q-field__native {
+  padding: 10px 10px;
+}
+
+.q-field__label {
+  padding: 5px 11px;
+}
+
+//product cart 
+.transition-top-hover {
+  transition: all 0.2s ease-in-out;
+}
+.transition-top-hover:hover {
+  transform: translateY(-0.2rem);
+}
+
+.shadow-xs-secondary,
+.shadow-xs-secondary-hover:hover {
+  box-shadow: 0 0 25px rgba(80, 102, 144, 0.1) !important;
+}
+.shadow-xs-secondary.added,
+.shadow-xs-secondary-hover.added:hover {
+  box-shadow: 0px 0px 16px -5px #ee703a !important;
+}
+
+.product {
+  border-radius: 5px;
+}
+
+
+//main - image css 
+
+.main-image {
+  width: 100%;
+  object-fit: cover;
+  height: 250px;
+  border-radius:5px;
+}
