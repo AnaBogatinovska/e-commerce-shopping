@@ -3,6 +3,7 @@ import axios from "axios";
 import auth from "../services/auth";
 
 Vue.prototype.$axios = axios;
+
 axios.defaults.baseURL = process.env.API_URL;
 axios.defaults.headers.common[`Content-Type`] = "application/json";
 
