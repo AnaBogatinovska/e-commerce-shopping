@@ -49,7 +49,7 @@ module.exports = function (ctx) {
         API_URL: JSON.stringify('http://localhost:3000/api/')
       } : {
         API_URL: JSON.stringify('https://ecommerce-api.anabogatinovska.com/api/')
-      }
+      },
       // transpile: false,
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
