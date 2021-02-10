@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0",
     "deploy": "quasar build && aws s3 sync --profile ana --delete dist/spa s3://ecommerce.anabogatinovska.com --acl public-read && npm run invalidate",
-    "invalidate": "aws cloudfront --profile ana create-invalidation --distribution-id E1LUBB0LPXDI28 --paths \"/*\" --output json"
+    "invalidate": "aws cloudfront --profile ana create-invalidation --distribution-id E1HF2S4E5EL8OU --paths \"/*\" --output json"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
