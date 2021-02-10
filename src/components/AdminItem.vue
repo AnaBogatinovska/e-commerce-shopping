@@ -92,6 +92,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import { Notify } from "quasar";
 
 export default {
   name: "AdminItem",
@@ -118,7 +119,6 @@ export default {
         .get(`admin/item/${this.$route.params.id}`)
         .then((result) => {
           this.form = result.data;
-          console.log(this.form);
         })
         .catch((err) => {
           console.log(err);
@@ -136,7 +136,7 @@ export default {
             File: this.file,
           },
         }).then(() => {
-          this.$router.push({ name: "AdminProducts" });
+         this.$router.push({ name: "AdminProducts" });
           this.spinner = false;
         });
       } else {
@@ -152,7 +152,7 @@ export default {
       }
     },
     url(form) {
-      return `http://localhost:3000/${form.ImageUrl}`;
+      return process.env.IMG_UPLOAD_URL + form.ImageUrl;
     },
   },
 };

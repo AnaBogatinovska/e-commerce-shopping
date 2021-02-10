@@ -7,7 +7,16 @@
             <img src="~/assets/logo.png" alt="logo" width="100" height="80" />
             <h1 class="title text-uppercase">Joyce-Ash-Shop</h1>
           </div>
-          <q-btn
+          <div>
+            <q-btn
+            v-if="isAdmin"
+            flat
+            dense
+            label="Products"
+            :to="{ name: 'Products' }"
+            class="q-mr-md"
+          />
+            <q-btn
             v-if="isAdmin"
             flat
             dense
@@ -15,6 +24,7 @@
             label="admin panel"
             :to="{ name: 'AdminProducts' }"
           />
+          </div>
 
           <div>
             <div class="row items-center">
@@ -62,6 +72,8 @@
 <script>
 import auth from "../services/auth";
 import { mapActions } from "vuex";
+import { Notify } from "quasar";
+
 
 export default {
   name: "Header",
@@ -102,6 +114,11 @@ export default {
       auth.removeToken();
       this.resetUserState();
       this.$router.push({ name: "LandingPage" });
+       Notify.create({
+          position: 'bottom-right',
+          message: 'Sucessfully logged out',
+          color: 'green'
+        })
     },
   },
 };

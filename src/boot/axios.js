@@ -1,7 +1,8 @@
 import Vue from "vue";
 import axios from "axios";
 import auth from "../services/auth";
-
+import { Notify } from 'quasar'
+ 
 Vue.prototype.$axios = axios;
 
 axios.defaults.baseURL = process.env.API_URL;
@@ -24,6 +25,11 @@ export default ({ Vue, router, store }) => {
       return config;
     },
     function(err) {
+       Notify.create({
+        position: 'bottom-right',
+        message: err.response.statusText,
+        color: 'red'
+      })
       if (err.response.status === 401) {
         auth.removeToken();
         store.dispatch("admin/resetAdminState");

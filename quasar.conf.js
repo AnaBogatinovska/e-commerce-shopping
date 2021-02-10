@@ -46,9 +46,11 @@ module.exports = function (ctx) {
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
       env: ctx.dev ? {
-        API_URL: 'http://localhost:3000/api/'
+        API_URL: 'http://localhost:3000/api/',
+        IMG_UPLOAD_URL: 'http://localhost:3000/'
       } : {
-        API_URL: 'https://ecommerce-api.anabogatinovska.com/api/'
+        API_URL: 'https://ecommerce-api.anabogatinovska.com/api/',
+        IMG_UPLOAD_URL: 'https://ecommerce-api.anabogatinovska.com/'
       },
       // transpile: false,
 

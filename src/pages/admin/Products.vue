@@ -115,7 +115,7 @@ export default {
     },
     url() {
       return (item) => {
-        return `http://localhost:3000/${item.ImageUrl}`;
+        return process.env.IMG_UPLOAD_URL + item.ImageUrl;
       };
     },
   },
@@ -125,9 +125,11 @@ export default {
     deleteListProduct(id) {
       this.spinner = true;
       this.deleteProduct(id);
-      this.deletePublicProduct(id);
-      this.spinner = false;
-      this.open =  false
+      this.deletePublicProduct(id).then(() => {
+
+        this.spinner = false;
+        this.open =  false
+      });
     },
     productToBeDelete(item) {
       this.productToDelete = item;

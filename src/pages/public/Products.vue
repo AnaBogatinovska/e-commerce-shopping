@@ -107,11 +107,7 @@ export default {
   },
   created() {
     this.getProducts();
-    console.log(this.$store.state.user.products);
     this.getCartProducts();
-  },
-  mounted() {
-    console.log(this.$store.state.user.products);
   },
   methods: {
     ...mapActions("user", ["getProducts", "addToCart", "getCartProducts"]),
@@ -139,7 +135,7 @@ export default {
       }
     },
     url(item) {
-      return `http://localhost:3000/${item.ImageUrl}`;
+      return process.env.IMG_UPLOAD_URL + item.ImageUrl;
     },
   },
 };

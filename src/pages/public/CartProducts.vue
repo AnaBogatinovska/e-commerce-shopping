@@ -159,7 +159,7 @@ export default {
       return price * qty;
     },
     url(item) {
-      return `http://localhost:3000/${item.Item.ImageUrl}`;
+      return process.env.IMG_UPLOAD_URL + item.Item.ImageUrl;
     },
   },
 };

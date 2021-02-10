@@ -76,6 +76,7 @@
 <script>
 import auth from "../../services/auth";
 import { mapActions } from "vuex";
+import { Notify } from "quasar";
 export default {
   name: "Login",
   data() {
@@ -101,6 +102,11 @@ export default {
         } else {
           this.$router.push("/products");
         }
+        Notify.create({
+          position: 'bottom-right',
+          message: 'Sucessfully logged in',
+          color: 'green'
+        })
       } catch (error) {
         console.log(error);
       }

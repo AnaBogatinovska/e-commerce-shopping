@@ -1,4 +1,5 @@
 import $axios from "axios";
+import { Notify } from "quasar";
 
 export const getProducts = async ({ state, commit }) => {
   if (state.products.length > 0) {
@@ -27,6 +28,12 @@ export const createProduct = async ({ state, commit }, form) => {
         }
       });
     commit("addItemToProducts", result.data);
+    Notify.create({
+      position: "bottom-right",
+      message: "Successfully created product",
+      color: "green",
+    });
+    
     return result;
   } catch (error) {
     console.log(error);
@@ -48,6 +55,12 @@ export const updateProduct = async ({ state, commit }, data) => {
         }
       });
     commit("updateProduct", result.data);
+    Notify.create({
+      position: "bottom-right",
+      message: "Successfully updated product",
+      color: "green",
+    });
+    
     return result;
   } catch (error) {
     console.log(error);
@@ -58,6 +71,11 @@ export const deleteProduct = async ({ state, commit }, id) => {
     try {
         const result = await $axios.delete(`admin/item/${id}`)
         commit("deleteProduct", id)
+        Notify.create({
+          position: "bottom-right",
+          message: "Successfully deleted product",
+          color: "green",
+        });
     } catch (error) {
         console.log(error)
     }

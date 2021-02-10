@@ -60,6 +60,7 @@
 <script>
 import auth from "../services/auth";
 import { mapActions } from "vuex";
+import { Notify } from "quasar";
 
 export default {
   name: "MainLayout",
@@ -79,6 +80,11 @@ export default {
       auth.removeToken();
       this.resetAdminState();
       this.$router.push({ name: "LandingPage" });
+       Notify.create({
+          position: 'bottom-right',
+          message: 'Sucessfully logged out',
+          color: 'green'
+        })
     },
   },
 };
