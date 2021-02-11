@@ -27,7 +27,7 @@ export default ({ Vue, router, store }) => {
     function(err) {
        Notify.create({
         position: 'bottom-right',
-        message: err.response.statusText,
+        message: err.response.data.message,
         color: 'red'
       })
       if (err.response.status === 401) {
