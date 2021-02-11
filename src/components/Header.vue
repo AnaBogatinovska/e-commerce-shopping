@@ -9,7 +9,6 @@
           </div>
           <div>
             <q-btn
-            v-if="isAdmin"
             flat
             dense
             label="Products"
