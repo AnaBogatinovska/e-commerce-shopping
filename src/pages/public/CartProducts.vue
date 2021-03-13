@@ -2,7 +2,7 @@
   <div>
     <h2 class="text-uppercase text-primary q-ml-md q-mt-md">cart products</h2>
     <div class="row crash-border">
-      <div class="col-6">
+      <div class="col-xs-12 col-sm-6">
         <div v-if="!cartItems.length" class="q-px-md">
           <h2 class="text-dark q-mb-lg">Your cart is empty</h2>
           <q-btn dense color="secondary" :to="{ name: 'Products' }" label="Go shop" icon="shopping" style="width: 300px"/>
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <div class="col-6 q-px-md">
+      <div class="col-xs-12 col-sm-6 q-px-md mt-xs">
         <div>
           <h2 class="text-primary">Summary</h2>
 
@@ -169,5 +169,10 @@ export default {
 .test {
   top: 50%;
   right: 20%;
+}
+@media (max-width: $breakpoint-xs-max) {
+  .mt-xs {
+    margin-top: 16px;
+}
 }
 </style>
