@@ -30,7 +30,7 @@
               <q-input
                 v-model="form.email"
                 color="secondary"
-                type="text"
+                type="email"
                 label="Email"
                 lazy-rules
               />
@@ -103,7 +103,9 @@ export default {
       try {
         const result = await this.$axios.post("auth/register", this.form);
         this.$router.push({ name: "Login" });
-      } catch (error) {}
+      } catch (error) {
+        console.log(error)
+      }
     },
   },
 };
